@@ -7,7 +7,9 @@ int main(){
 	
 	int n;
 
-
+//	BinToDecOC(10100111);
+	printf("\n");
+	DecToBinTC(12);
 	
 	return 0;
 }
@@ -35,55 +37,62 @@ int DecToBinTC(int number){
 	
 	
 	int i,j,k;
-	
-	// to one's complement
-	for (j = 15; j >= 0; j--){
-		if (array[j] == 1){
-			array[j] = 0;
-		}else {
-			array[j] = 1;
+	if (number < 0){
+		// to one's complement
+		for (j = 15; j >= 0; j--){
+			if (array[j] == 1){
+				array[j] = 0;
+			}else {
+				array[j] = 1;
+			}
 		}
-	}
-	
-	
-	
-	//to decimal for add 1
-	long decimal_total;
-	decimal_total = 0;
-	
-	
-	for (k = 0; k < 16; k++){
-		if (array[k] == 1){
-			decimal_total += (int)pow(2,15-k);
+		
+		
+		
+		//to decimal for add 1
+		long decimal_total;
+		decimal_total = 0;
+		
+		
+		for (k = 0; k < 16; k++){
+			if (array[k] == 1){
+				decimal_total += (int)pow(2,15-k);
+			}
 		}
+		
+		printf("\ndec is %d\n",decimal_total);
+		
+		decimal_total += 1;
+		
+		int final_array[16] = {0};
+	
+	
+		int c;
+		c = 0;
+		
+		while (decimal_total > 0){
+			int rem;
+			rem = decimal_total % 2;
+			
+			final_array[15-c] = rem;
+			
+			decimal_total = (decimal_total-rem) / 2;
+			
+			c++;
+		}
+	
+		for (i = 0; i < 16; i++){
+			printf("%d", final_array[i]);
+		}
+	}else{
+		
+		for (i = 0; i < 16; i++){
+			printf("%d", array[i]);
+		}		
+		
 	}
 	
-	printf("\ndec is %d\n",decimal_total);
-	
-	decimal_total += 1;
-	
-	int final_array[16] = {0};
 
-
-	int c;
-	c = 0;
-	
-	while (decimal_total > 0){
-		int rem;
-		rem = decimal_total % 2;
-		
-		final_array[15-c] = rem;
-		
-		decimal_total = (decimal_total-rem) / 2;
-		
-		c++;
-	}
-	
-	
-	
-	for (i = 0; i < 16; i++){
-		printf("%d", final_array[i]);
-	}
 	
 	return 1;
 }
