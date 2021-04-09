@@ -26,8 +26,9 @@ int dec_to_bin(int x){
         ++counter;
        }
     
+    int i;
     
-    for (int i = counter - 1; i >= 0; --i){
+    for (i = counter - 1; i >= 0; --i){
         printf("%d", arr[i]);
     }
     

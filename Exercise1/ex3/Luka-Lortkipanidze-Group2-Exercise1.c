@@ -36,3 +36,47 @@ int findMax(int arr[]){
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//pseudo code
+
+/*
+
+largest := a
+
+if b > largest:
+	largest := b
+endif
+
+if c > largest:
+	largest := c
+endif
+
+if d > largest:
+	largest := d
+endif 
+
+if e > largest:
+	largest := e
+endif 
+
+	
+return largest
+
+
+
+*/
+
+
+
+
