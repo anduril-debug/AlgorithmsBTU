@@ -9,12 +9,132 @@ int main(){
 
 //	BinToDecOC(10100111);
 	printf("\n");
-	DecToBinTC(12);
-	
+	DecToBinTC(13);
+
+//	for (i = 0; i < 16; i++){
+//		printf("[%d]",arr[i]);
+//	}
+
 	return 0;
 }
 
 
+
+
+
+
+/* 
+
+	int array[16];
+	int total,counter = 0;
+	
+	while ( number > 0 ) {
+		int rem;
+		rem = number % 2;
+		array[counter] = rem;
+		number = (number - rem) / 2;
+		counter++;
+	
+	}
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+// TC - Two's complement  - binary to decimal
+int BinToDecTC(int number){
+	
+	printf("number is %d\n", number);
+
+	int array[10] = {0};
+	int counter;
+	counter = 0;
+	
+	// atobitshi gadayvana
+	while (number > 0){
+		int rem;
+		rem = number % 10;
+
+		array[9-counter] = rem;
+		counter++;
+		number = (number - rem) / 10;
+	}
+	
+
+	
+	int p,total;
+	total = 0;
+
+	for (p = 0; p < 10; p++){
+		if (array[9-p] == 1){
+			printf("\n[%d]%d\n",p,array[p]);
+			total = total + (int)pow(2,p);
+		}
+	}
+
+	int decimal_num = total;
+
+
+	printf("\n decimal  %d \n",decimal_num);
+	
+	//gamovaklot erti da gadaviyvanot orobitshi
+	
+	int minus_one;
+	minus_one = decimal_num - 1;
+	int ones_complement[10] = {0};
+	int c = 0;
+	printf("\n minus one %d\n",minus_one);
+
+	while (minus_one > 0){
+		int rem;
+		rem = minus_one % 2;
+
+		ones_complement[9-c] = rem;
+		c++;
+		minus_one = (minus_one - rem) / 2;
+	}
+	
+	for (p = 0; p < 10; p++){
+		printf("%d",ones_complement[p]);
+	}
+	
+	int fin_array[10] = {0};
+	
+	for (p = 0; p < 10; p++){
+		if (ones_complement[p] == 0){
+			fin_array[p] = 1;
+		}else{
+			fin_array[p] = 0;
+		}
+	}
+	printf("\n");
+	int fin_total;
+	fin_total = 0;
+	
+	for (p = 0; p < 10; p++){
+		printf("%d",fin_array[p]);
+		if (fin_array[p] == 1){
+			fin_total += (int)pow(2,p);
+		}
+	}
+	
+	printf("\n%d",fin_total);
+	
+	return 1;	
+	
+	
+	
+//	1011000000
+}
 
 // TC - Two's complement  - decimal to binary
 int DecToBinTC(int number){
