@@ -109,13 +109,13 @@ int BinToDecTC(int number){
 	
 	int fin_array[10] = {0};
 	
-	for (p = 0; p < 10; p++){
-		if (ones_complement[p] == 0){
-			fin_array[p] = 1;
-		}else{
-			fin_array[p] = 0;
-		}
-	}
+//	for (p = 0; p < 10; p++){
+//		if (ones_complement[p] == 0){
+//			fin_array[p] = 1;
+//		}else{
+//			fin_array[p] = 0;
+//		}
+//	}
 	printf("\n");
 	int fin_total;
 	fin_total = 0;

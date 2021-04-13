@@ -11,8 +11,15 @@ int main(){
 //	printf("\n");
 //	binToDecTwosComp(1101);
 //	fromSignedMagnitude(110,1);
+//	decToExcess(23,127);
+	binToExcess(101,1);
 	return 0;
 }
+
+
+
+
+
 
 // from signed magnitude with sign bit
 int fromSignedMagnitude(int number,int sign_bit){
@@ -235,3 +242,61 @@ int decToBinOnesComp(int number){
 	return 1;
 	
 }
+
+
+
+
+// excess respresentation binary to decimal
+int binToExcess(int number, int b){
+	
+	int total,counter = 0;
+
+	while (number != 0){
+		int rem;
+		rem = number % 10;
+		if (rem == 1){
+			total += (int)pow(2,counter);
+		}
+		counter++;
+		number = (number - rem)/10;
+	}
+	int res;
+	res = total - b;
+
+	printf("%d",res);
+
+	return 1;
+
+	
+}
+
+
+
+// excess respresentation decimal to binary
+int decToExcess(int number, int b){
+	
+	int res,counter;
+	res = number + b;
+	int array[16] = {0};
+	counter = 0;
+	
+	while (res != 0){
+		int rem;
+		rem = res % 2;
+		array[15-counter] = rem;
+		res = (res - rem) / 2;
+		counter++; 
+
+	}
+	
+	int i;
+	
+	for (i = 0; i < 16; i++){
+		printf("%d",array[i]);
+	}
+	
+	return 1;
+}
+
+
+
